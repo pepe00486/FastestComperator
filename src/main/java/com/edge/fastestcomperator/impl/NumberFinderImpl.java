@@ -20,7 +20,7 @@ public class NumberFinderImpl implements NumberFinder {
     public boolean contains(final int valueToFind, final List<CustomNumberEntity> list) {
         final FastestComparator comparator = new FastestComparator();
         final Predicate<CustomNumberEntity> containsValueToFind = customNumberEntity ->
-                compare(comparator, customNumberEntity, valueToFind);
+                compare(comparator, valueToFind, customNumberEntity);
         return list.stream()
                 .filter(customNumberEntity -> isInteger(customNumberEntity.getNumber()))
                 .distinct()
@@ -38,10 +38,10 @@ public class NumberFinderImpl implements NumberFinder {
         }
     }
 
-    private boolean compare(final FastestComparator comparator, final CustomNumberEntity entity, final int valueToFind) {
+    private boolean compare(final FastestComparator comparator, final int valueToFind, final CustomNumberEntity entity) {
         try {
             return comparator.compare(valueToFind, entity) == 0;
-        } catch (NumberFormatException efException) {
+        } catch (final NumberFormatException efException) {
             return false;
         }
     }

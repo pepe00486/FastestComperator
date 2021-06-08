@@ -9,7 +9,7 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 public class NumberFinderImplTest {
-    NumberFinder numberFinder = new NumberFinderImpl();
+    final NumberFinder numberFinder = new NumberFinderImpl();
 
     @Test
     public void NumberFinderImpl_readFromFile_valid_file_returns_9_items_list() {

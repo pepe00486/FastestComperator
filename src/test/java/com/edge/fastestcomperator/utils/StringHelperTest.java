@@ -41,6 +41,6 @@ public class StringHelperTest {
         assertTrue(isInteger("-12"));
         assertTrue(isInteger("-0"));
         assertTrue(isInteger(Integer.MAX_VALUE + ""));
-        assertTrue(isInteger(Integer.MAX_VALUE + ""));
+        assertTrue(isInteger(Integer.MIN_VALUE + ""));
     }
 }
